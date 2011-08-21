@@ -1,6 +1,5 @@
 package com.android.inputmethod.latin;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.KeyEvent;
 
@@ -39,12 +38,20 @@ public class HardKeyRemap {
 			return false;
 		
 		String p = ime.getCurrentInputEditorInfo().packageName;
-		if (! p.equals(cachedPackage)) {
+		if (cachedPackage == null || ! p.equals(cachedPackage)) {
 			// cachedMode = pref.getInt(p, MODE_NONE);
 			if (p.equals("com.overdrive.mobile.android.mediaconsole")) {
 				cachedMode = MODE_VOLUME_LEFT_RIGHT;
 			}
+			else if (p.equals("com.amazon.kindle")) {
+				cachedMode = MODE_VOLUME_LEFT_RIGHT;
+			}
+			else {
+				cachedMode = MODE_NONE;
+			}
+			cachedPackage = p;
 		}
+		
 		if (cachedMode == MODE_NONE)
 			return false;
 		

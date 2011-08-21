@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-		android:versionName="1.0.5"
-    	android:versionCode="6" 
+		android:versionName="1.0.6"
+    	android:versionCode="7" 
     	package="mobi.pruss.android.inputmethod.latin">
         
 	<uses-sdk android:minSdkVersion="8"/>  
