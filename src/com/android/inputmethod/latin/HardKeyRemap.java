@@ -1,6 +1,7 @@
 package com.android.inputmethod.latin;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.KeyEvent;
 
 public class HardKeyRemap {
@@ -38,6 +39,7 @@ public class HardKeyRemap {
 			return false;
 		
 		String p = ime.getCurrentInputEditorInfo().packageName;
+//		Log.v("kb", p+" "+keyCode+" "+event.getAction());
 		if (cachedPackage == null || ! p.equals(cachedPackage)) {
 			// cachedMode = pref.getInt(p, MODE_NONE);
 			if (p.equals("com.overdrive.mobile.android.mediaconsole")) {
@@ -64,7 +66,8 @@ public class HardKeyRemap {
 		
 		if (newCode == 0)
 			return false;
-		
+
+//		Log.v("kb", "send "+newCode);
         ime.getCurrentInputConnection().sendKeyEvent( 
                 new KeyEvent(event.getAction(), newCode));
         

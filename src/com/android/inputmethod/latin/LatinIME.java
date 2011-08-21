@@ -966,6 +966,11 @@ public class LatinIME extends InputMethodService
     public boolean onKeyDown(int keyCode, KeyEvent event) {
     	if (mHardKeyRemap.handleKeyEvent(keyCode, event)) 
     		return true;
+/*    	if (KeyEvent.KEYCODE_VOLUME_DOWN == keyCode ||
+    			KeyEvent.KEYCODE_VOLUME_UP == keyCode) {
+    		Log.v("kb", "down");
+    	} */
+    	
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
                 if (event.getRepeatCount() == 0 && mKeyboardSwitcher.getInputView() != null) {
@@ -994,20 +999,12 @@ public class LatinIME extends InputMethodService
     public boolean onKeyUp(int keyCode, KeyEvent event) {
     	if (mHardKeyRemap.handleKeyEvent(keyCode, event)) 
     		return true;
+/*    	if (KeyEvent.KEYCODE_VOLUME_DOWN == keyCode ||
+    			KeyEvent.KEYCODE_VOLUME_UP == keyCode) {
+    		Log.v("kb", "up");
+    	} */
 
     	switch (keyCode) {
-        
-	        case KeyEvent.KEYCODE_VOLUME_DOWN:
-	        case KeyEvent.KEYCODE_VOLUME_UP:
-	        	if (getCurrentInputEditorInfo().packageName.equals("com.overdrive.mobile.android.mediaconsole")) {
-	        		int newCode = (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) ?
-	        				KeyEvent.KEYCODE_DPAD_RIGHT : 
-	        					KeyEvent.KEYCODE_DPAD_LEFT;	        	
-	                getCurrentInputConnection().sendKeyEvent( 
-	                        new KeyEvent(KeyEvent.ACTION_UP, newCode));
-	                return true;
-	        	}
-	        	break;
             case KeyEvent.KEYCODE_DPAD_DOWN:
             case KeyEvent.KEYCODE_DPAD_UP:
             case KeyEvent.KEYCODE_DPAD_LEFT:
