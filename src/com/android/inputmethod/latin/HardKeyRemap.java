@@ -66,7 +66,7 @@ public class HardKeyRemap {
 		
 		if (newCode == 0)
 			return false;
-
+		
 //		Log.v("kb", "send "+newCode);
         ime.getCurrentInputConnection().sendKeyEvent( 
                 new KeyEvent(event.getAction(), newCode));

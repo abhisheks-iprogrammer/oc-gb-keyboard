@@ -346,6 +346,8 @@ public class LatinIME extends InputMethodService
         LatinImeLogger.init(this);
         super.onCreate();
         
+        Log.v("kb", "onCreate");
+        
         Theme.setContext(this);
         //setStatusIcon(R.drawable.ime_qwerty);        
         mResources = getResources();
@@ -403,7 +405,7 @@ public class LatinIME extends InputMethodService
      * @return returns array of dictionary resource ids
      */
     /* package */ static int[] getDictionary(Resources res) {
-        String packageName = LatinIME.class.getPackage().getName();
+//        String packageName = LatinIME.class.getPackage().getName();
         XmlResourceParser xrp = res.getXml(R.xml.dictionary);
         ArrayList<Integer> dictionaries = new ArrayList<Integer>();
 
